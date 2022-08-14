@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.0.2" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.0.2" />
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yoopala.Test.Apply.Common\Yoopala.Test.Apply.Common.csproj" />
+    <ProjectReference Include="..\Yoopala.Test.Apply.Infrastructure\Yoopala.Test.Apply.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

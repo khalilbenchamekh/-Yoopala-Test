@@ -1,0 +1,47 @@
+﻿@{ ViewData["Title"] = "Liste des médias"; }
+
+@using Yoopala.Test.Apply.WebApp.Models.Medias;
+@model MediaPagingIndexViewModel;
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Titre</th>
+            <th scope="col">Type</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Medias)
+        {
+<tr>
+    <td>@(item.Title)</td>
+    <td>@(item.Type)</td>
+    <td>
+        <a asp-area=""
+           asp-controller="Media"
+           asp-action="Details"
+           asp-route-key="@item.Id">Voir</a>
+    </td>
+    @*TODO 3 : Faire en sorte que ce lien redirgie vers la bonne page Details, aux normes des Tag Helper intégrés ASP.Net Core en gardant le routing existant *@
+</tr>}
+    </tbody>
+</table>
+<br />
+<nav aria-label="Media navigation">
+    <ul class="pagination">
+        <li class="page-item @(Model.CurrentPage >1 ? "" : "disabled")">
+            <a class="page-link" asp-area="" asp-controller="Media" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">@Model.CurrentPage</a></li>
+        <li class="page-item @(Model.CurrentPage < Model.MaxPageCount ? "" : "disabled")">
+            <a class="page-link" asp-area="" asp-controller="Media" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,42 @@
+﻿@{ ViewData["Title"] = "Détails de média"; }
+
+@using Yoopala.Test.Apply.WebApp.Models.Medias;
+@model MediaDetailsViewModel;
+
+@if (ViewData.ContainsKey("Error"))
+{
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Error"]</h1>
+</div> 
+}
+else
+{
+<div class="text-left mb-4">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div> 
+<table class="table">
+    <thead>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="font-weight-bold">Titre</td>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold">Production</td>
+            <td>@Model.Production</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold">Description</td>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold">Type</td>
+            <td>@Model.Type</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold">Date de sortie</td>
+            <td>@Model.ReleaseDate</td>
+        </tr>
+    </tbody>
+</table>}

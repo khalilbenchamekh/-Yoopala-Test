@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Liste des médias";
+}
+
+@using Yoopala.Test.Apply.WebApp.Models.Medias;
+@model List<MediaIndexViewModel>;
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@(item.Id)</th>
+                <td>@(item.Title)</td>
+                <td>@(item.Type)</td>
+            </tr>
+        }
+    </tbody>
+</table>
